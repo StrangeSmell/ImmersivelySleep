@@ -1,0 +1,16 @@
+{
+	"sources": [
+		{
+			"type": "single",
+			"resource": "good_nights_sleep:entity/bed/strange_bed"
+		},
+		{
+			"type": "single",
+			"resource": "good_nights_sleep:entity/bed/luxurious_bed"
+		},
+		{
+			"type": "single",
+			"resource": "good_nights_sleep:entity/bed/wretched_bed"
+		}
+	]
+}

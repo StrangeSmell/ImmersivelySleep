@@ -1,0 +1,31 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run/
+!/run/config
+!/run/saves/JigsawStructures
+!/run/saves/Structures_old
+!run/options.txt
+!.idea/icon.png
+
+/structureList.xcf
+/structures.xcf
+/Logo.xcf
