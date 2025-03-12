@@ -6,16 +6,10 @@ import com.legacy.goodnightsleep.registry.GNSDimensions;
 import com.legacy.goodnightsleep.world.GNSTeleporter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.server.ServerLifecycleHooks;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 public class GNSUtil {

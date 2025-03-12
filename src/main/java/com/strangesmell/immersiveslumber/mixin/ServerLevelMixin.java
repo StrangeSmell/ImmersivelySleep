@@ -1,6 +1,6 @@
 package com.strangesmell.immersiveslumber.mixin;
 
-import net.minecraft.client.Minecraft;
+
 import net.minecraft.core.Holder;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -44,7 +44,7 @@ public abstract class ServerLevelMixin {
         List<ServerPlayer> playerList = this.server.getPlayerList().getPlayers();
         for(ServerPlayer serverPlayer : playerList) {
             if(!serverPlayer.isSleeping()) return;
-            if(isAudibleFrom(new Vec3(x,y,z),sound.value().getRange(volume))) {
+            if(isAudibleFrom(serverPlayer,new Vec3(x,y,z),sound.value().getRange(volume))) {
                 if(playSoundEventMap.get(serverPlayer.getUUID()) == null)
                     playSoundEventMap.put(serverPlayer.getUUID(), null);
             }
@@ -70,7 +70,7 @@ public abstract class ServerLevelMixin {
         List<ServerPlayer> playerList = this.server.getPlayerList().getPlayers();
         for(ServerPlayer serverPlayer : playerList) {
             if(!serverPlayer.isSleeping()) return;
-            if(isAudibleFrom(entity.position(),sound.value().getRange(volume))) {
+            if(isAudibleFrom(serverPlayer,entity.position(),sound.value().getRange(volume))) {
                 if(playSoundEventMap.get(serverPlayer.getUUID()) == null)
                     playSoundEventMap.put(serverPlayer.getUUID(),null);
             }
@@ -78,12 +78,12 @@ public abstract class ServerLevelMixin {
         }
     }
         // 实体版本的自定义逻辑
-    public boolean isAudibleFrom(Vec3 pLocation, float pRange) {
+    public boolean isAudibleFrom(ServerPlayer serverPlayer,Vec3 pLocation, float pRange) {
         if (Float.isInfinite(pRange)) {
             return true;
         } else {
-            if(Minecraft.getInstance().player==null) return false;
-            return !(Minecraft.getInstance().player.position().distanceTo(pLocation) > pRange);
+            if(serverPlayer==null) return false;
+            return !(serverPlayer.position().distanceTo(pLocation) > pRange);
         }
     }
 }
